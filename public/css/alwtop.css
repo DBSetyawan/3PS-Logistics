@@ -1,0 +1,20 @@
+.atlwdg-trigger {
+    position: fixed;
+    /* background: #013466; */
+    padding: 5px;
+    /* border: 2px solid rgb(25, 160, 31); */
+    /* border-top: 0; */
+    font-weight: bold;
+    color: rgb(49, 108, 202) !important;
+    display: block;
+    white-space: nowrap;
+    text-decoration: none !important;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 15px;
+}
+
+.atlwdg-trigger.atlwdg-TOP {
+    left: 75%;
+    display: block;
+    bottom: 50px;
+}

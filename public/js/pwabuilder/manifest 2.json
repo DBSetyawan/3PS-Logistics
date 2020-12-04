@@ -1,0 +1,10 @@
+{
+	"start_url" : "http://your-api.co.id/login",
+	"description" : "Tiga permata sistem",
+	"short_name" : "3PS - Application",
+	"name" : "3PS",
+	"scope" : "Web application",
+	"display" : "standalone",
+	"orientation" : "any",
+	"lang" : "Indonesian"
+}

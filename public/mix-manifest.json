@@ -1,0 +1,23 @@
+{
+<<<<<<< HEAD
+    "/js/app.js": "/js/app.js?id=7f33f537983e6adbc7c3",
+    "/css/app.css": "/css/app.css?id=7d824fbe3f0f642c0e89",
+    "/css/latest-tailwind.css": "/css/latest-tailwind.css?id=4bb5b5a6f2d45a7a2aba",
+=======
+    "/js/app.js": "/js/app.js?id=32c8a0a19a67a04e7049",
+    "/css/app.css": "/css/app.css?id=2ad262ffc22a754bf0c0",
+    "/css/latest-tailwind.css": "/css/latest-tailwind.css?id=e21abb4242aa9a4bd0d7",
+>>>>>>> 3554c04637808bf9e1d3eb51c687555cba413fa1
+    "/js/sweetalert2.js": "/js/sweetalert2.js?id=729146d516ce4d8ce47a",
+    "/js/sweetalert2.css": "/js/sweetalert2.css?id=9b4d7a497c5fb25a3604",
+    "/js/sweetalert-bootstrap.css": "/js/sweetalert-bootstrap.css?id=0862d17907b9cc4e4374",
+    "/js/sweetalert-bootstrap.js": "/js/sweetalert-bootstrap.js?id=10ba6a45b5ea3105870c",
+    "/js/sweetalert-bootstrap.min.js": "/js/sweetalert-bootstrap.min.js?id=0e2613ca4d17a624d7e9",
+    "/js/wdtLoading.js": "/js/wdtLoading.js?id=a67ac62f2640f4fcb0c9",
+    "/js/wdtLoading.css": "/js/wdtLoading.css?id=3e4c252813fa168d05aa",
+    "/css/viewer.min.css": "/css/viewer.min.css?id=9961f30b9759649bab24",
+    "/css/viewer.css": "/css/viewer.css?id=b3448468032df6dad5a0",
+    "/js/viewer.js": "/js/viewer.js?id=960cb600a8cd2f0e8a6e",
+    "/js/obfuscator.js": "/js/obfuscator.js?id=cbc947aab215d820649a",
+    "/js/kleur.js": "/js/kleur.js?id=34fe97ec875d9456d1fd"
+}

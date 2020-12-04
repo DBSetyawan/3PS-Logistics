@@ -1,0 +1,14 @@
+{
+    "name": "3ps-nodejs-webhooks",
+    "version": "2.8.0-1-08",
+    "private": true,
+    "main": "server.js",
+    "scripts": {
+        "start": "server.js"
+    },
+    "dependencies": {
+        "express": "^4.17.1",
+        "socket.io": "^2.3.0",
+        "redis": "^2.8.0"
+    }
+}

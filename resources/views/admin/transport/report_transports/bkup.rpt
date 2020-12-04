@@ -1,0 +1,515 @@
+
+<div style="margin-right:3%;font-size:20px;text-align:right;">SHIPPER</div>
+  <table>
+        <tr>
+            <th colspan="2">
+                @if($data_transport->company_branch->company->id=="2")
+                <img style="
+                overflow: auto;
+                margin-left:2px;
+                margin-right: 2px;" height="38" width="74" HSPACE="10" VSPACE="9" align="left" src="{{asset('./img/3PE.png')}}" />
+            <font style="font-family: Arial;position:absolute;">
+                Represented By
+                    <br/>
+                <font style="font-size: 13px;">
+                    {{ $data_transport->company_branch->company->name }}
+                </font>
+                    <br/>
+                    {{ $data_transport->company_branch->address }}
+                    <br/>
+                    Tel: {{ $data_transport->company_branch->telp }}
+                    <br/>
+                    Email: info@3permata.co.id
+                </font>
+                @else
+                <img style="
+                overflow: auto;
+                margin-left:2px;
+                margin-right: 2px;" HSPACE="10" VSPACE="9" align="left" src="{{asset('./img/tiga-permata-logistik-surabaya-logo.png')}}" />
+                 <font style="font-family: Arial;position:absolute;">
+                        Represented By
+                            <br/>
+                        <font style="font-size: 13px;">
+                            {{ $data_transport->company_branch->company->name }}
+                        </font>
+                            <br/>
+                            {{ $data_transport->company_branch->address }}
+                            <br/>
+                            Tel: {{ $data_transport->company_branch->telp }}
+                            <br/>
+                            Email: info@3permata.co.id
+                        </font>
+                @endif
+               </th>
+                <th colspan="2">
+                    <p style="transform: translate(-41%, -50%);">
+                    <span style="display:inline-block;width:150px"></span>Shipment Code:
+                    <span style="display:inline-block;width:90px"></span><font style="font-family: Fira Code;font-size: 13px"> {{$data_transport->order_id}} </font>
+                    </p> 
+                    <font style="transform: translate(-41%, 1%);">
+                        Created At
+                        <font style="font-family: Fira Code;font-size: 11px"> {{$data_transport->created_at->format('d M Y H:i')}} </font>
+                    </font> 
+                    <img style="
+                    margin-top: -61px;
+                    margin-right: -7px;" height="56" width="58" HSPACE="10" VSPACE="2" align="right" src="data:{{$qrCode->getContentType().";base64,".$qrCode->generate()}}" />
+                </th>
+                <th style="height:67px" colspan="1">
+                <p style="transform: translate(1%, -90%);">
+                    Service: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    {{$data_transport->itemtransports->sub_services->name}}
+                </p>
+            </tr>
+                <tr>
+                    <td width="1%" colspan="3" >Customer</td>
+                    <td >Origin</td>
+                    <td >Destination</td>
+                    <td >collie</td>
+                    <td >Actual (Kg)</td>
+                    <td >Chargeable (Kg)</td>
+                </tr>
+            <tr>
+                <td width="10%" colspan="1">Origin : {{$data_transport->customers->name}}</td>
+                {{-- <td></td> --}}
+                <td td width="1%" colspan="2">Destination</td>
+                <td>{{$data_transport->collie}}</td>
+                <td>{{$data_transport->actual_weight}}</td>
+                <td>{{$data_transport->chargeable_weight}}</td>
+            </tr>
+            <tr>
+                <td colspan="3"> <p align="top">
+                    <p style="
+                    position: relative;
+                    transform: translate(1%, -11%);">
+                    </p>
+                    <span style=" transform: translate(1%, 60%);display:inline-block;width:114px;"> Shipper's Details</span><span style=" transform: translate(1%, 60%);display:inline-block;width:100px;">:  {{ $data_transport->customers->name}}</span>
+                    <p style="
+                    position: relative;
+                    transform: translate(1%, -11%);"> 
+                    </p>
+                    <span style=" transform: translate(1%, 84%);display:inline-block;width:114px;"> Address</span><span style=" transform: translate(1%, 84%);display:inline-block;width:211px;">: {{ $data_transport->origin_address }}</span>
+                    <p style="
+                    position: relative;
+                    transform: translate(1%, -11%);"><span style=" transform: translate(-3%, 90%);display:inline-block;width:113px;"> PIC:</span><span style=" transform: translate(-42%, 90%);display:inline-block;width:220px;">  {{$data_transport->pic_name_destination}} <span style=" transform: translate(20%, 20%);display:inline-block;width:220px;">Telp : {{$data_transport->pic_phone_destination}}</span> 
+                    </p>
+                    {{-- <span style=" transform: translate(1%, 70%);display:inline-block;width:113px;"> PIC:</span><span style=" transform: translate(-42%, 70%);display:inline-block;width:220px;">  {{$data_transport->pic_name_origin}}</span>
+                    <span style=" transform: translate(-210%, 70%);display:inline-block;width:113px;"> Telp</span><span style=" transform: translate(-270%, 70%);display:inline-block;width:120px;">:  {{$data_transport->pic_phone_origin}}</span> --}}
+                    
+                </td>
+                <td colspan="3"> <p align="top">
+                        <p style="
+                        position: relative;
+                        transform: translate(1%, -20%);">
+                        </p>
+                        <span style=" transform: translate(1%, 60%);display:inline-block;width:114px;"> Destination Details</span><span style=" transform: translate(1%, 60%);display:inline-block;width:219px;">: {{$data_transport->destination_details}} </span>
+                        <p style="
+                        position: relative;
+                        transform: translate(1%, -20%);">    
+                        </p>
+                        <span style=" transform: translate(1%, 84%);display:inline-block;width:114px;"> Address</span><span style=" transform: translate(1%, 84%);display:inline-block;width:219px;">: {{ $data_transport->destination_address }} </span>
+                        <p style="
+                        position: relative;
+                        transform: translate(1%, -20%);"><span style=" transform: translate(-2%, 90%);display:inline-block;width:113px;"> PIC:</span><span style=" transform: translate(-43%, 90%);display:inline-block;width:220px;">  {{$data_transport->pic_name_destination}} <span style=" transform: translate(20%, 20%);display:inline-block;width:220px;">Telp : {{$data_transport->pic_phone_destination}}</span>
+                        </p>
+                </td>
+            </tr>
+            <tr>
+                <td width="1%" colspan="3">PO Codes: {{$data_transport->purchase_order_customer}}</td>
+                {{--  <td width="1%"colspan="3">Note: {{$data_transport->notes}}</td>  --}}
+                <td width="1%"colspan="3">Note:</td>
+            </tr>
+            <tr>
+                    <td style="height:67px"colspan="2"> <p align="top">
+                            <p style="
+                            position: relative;
+                            transform: translate(1%, -16%);">Signature (Shipper) 
+                            </p>
+                            <p style="
+                            position: relative;
+                            transform: translate(1%, -20%);">Name: 
+                            </p>
+                            <p style="
+                            position: relative;
+                            transform: translate(1%, 100%);">Date: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Time:
+                            </p>
+                        </td>
+                        <td style="height:67px"colspan="2"> <p align="top">
+                                <p style="
+                                position: relative;
+                                transform: translate(1%, -16%);">Signature (Courier) 
+                                </p>
+                                <p style="
+                                position: relative;
+                                transform: translate(1%, -20%);">Name: 
+                                </p>
+                                <p style="
+                                position: relative;
+                                transform: translate(1%, 100%);">Date: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Time:
+                                </p>
+                            </td>
+                            <td style="height:67px"colspan="2"> <p align="top">
+                                    <p style="
+                                    position: relative;
+                                    transform: translate(1%, -16%);">Signature (Receiver) 
+                                    </p>
+                                    <p style="
+                                    position: relative;
+                                    transform: translate(1%, -20%);">Name: 
+                                    </p>
+                                    <p style="
+                                    position: relative;
+                                    transform: translate(1%, 100%);">Date: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Time:
+                                    </p>
+                                </td>
+            </tr>
+            <tr>
+                <td style="height:10px;background-color: #b0b1b2;"colspan="6"><font style="font-size:11px">I/We hereby acknowledge all the terms & condition stated on the reverse side as the terms & conditon of this contract and agree to be bound by</font></td>
+            </tr>
+  </table>
+        <hr>
+    <div style="margin-right:3%;font-size:19px;text-align:right;position:inherit">COURIER</div>
+    <table>
+            <tr>
+                <th colspan="3">
+                    @if($data_transport->company_branch->company->id=="2")
+                    <img style="
+                    overflow: auto;
+                    margin-left:2px;
+                    margin-right: 2px;" height="38" width="74" HSPACE="10" VSPACE="9" align="left" src="{{asset('./img/3PE.png')}}" />
+                <font style="font-family: Arial;position:absolute;">
+                    Represented By
+                        <br/>
+                    <font style="font-size: 13px;">
+                        {{ $data_transport->company_branch->company->name }}
+                    </font>
+                        <br/>
+                        {{-- <font style="font-size: 9px;"> --}}
+                        {{ $data_transport->company_branch->address }}
+                        {{-- </font> --}}
+                        <br/>
+                        Tel: {{ $data_transport->company_branch->telp }}
+                        <br/>
+                        Email: info@3permata.co.id
+                    </font>
+                    @else
+                    <img style="
+                    overflow: auto;
+                    margin-left:2px;
+                    margin-right: 2px;" HSPACE="10" VSPACE="9" align="left" src="{{asset('./img/tiga-permata-logistik-surabaya-logo.png')}}" />
+                     <font style="font-family: Arial;position:absolute;">
+                            Represented By
+                                <br/>
+                            <font style="font-size: 13px;">
+                                {{ $data_transport->company_branch->company->name }}
+                            </font>
+                                <br/>
+                                {{-- <font style="font-size: 9px;"> --}}
+                                {{ $data_transport->company_branch->address }}
+                                {{-- </font> --}}
+                                <br/>
+                                Tel: {{ $data_transport->company_branch->telp }}
+                                <br/>
+                                Email: info@3permata.co.id
+                            </font>
+                    @endif
+                    {{-- <img style="
+                    overflow: auto;
+                    margin-left:2px;
+                    margin-right: 2px;" HSPACE="10" VSPACE="9" align="left" src="{{asset('./img/tiga-permata-logistik-surabaya-logo.png')}}" /> --}}
+              
+                   </th>
+                    <th colspan="2">
+                        <p style="transform: translate(-41%, -50%);">
+                        <span style="display:inline-block;width:150px"></span>Shipment Code:
+                        <span style="display:inline-block;width:90px"></span><font style="font-family: Fira Code;font-size: 13px"> {{$data_transport->order_id}} </font>
+                        </p> 
+                        <font style="transform: translate(-41%, 1%);">
+                            Created At
+                            <font style="font-family: Fira Code;font-size: 11px"> {{$data_transport->created_at->format('d M Y H:i')}} </font>
+                        </font> 
+                        <img style="
+                        margin-top: -61px;
+                        margin-right: -7px;" height="56" width="58" HSPACE="10" VSPACE="2" align="right" src="data:{{$qrCode->getContentType().";base64,".$qrCode->generate()}}" />
+                    </th>
+                    <th style="height:67px" colspan="1">
+                    <p style="transform: translate(1%, -90%);">
+                        Service: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        {{$data_transport->itemtransports->sub_services->name}}
+                    </p>
+                </tr>
+                    <tr>
+                        <td >Purchase order</td>
+                        <td >Origin</td>
+                        <td >Destination</td>
+                        <td >collie</td>
+                        <td >Actual (Kg)</td>
+                        <td >Chargeable (Kg)</td>
+                    </tr>
+                <tr>
+                    <td></td>
+                    <td>{{$data_transport->origin}}</td>
+                    <td>{{$data_transport->destination}}</td>
+                    <td>{{$data_transport->collie}}</td>
+                    <td>{{$data_transport->actual_weight}}</td>
+                    <td>{{$data_transport->chargeable_weight}}</td>
+                </tr>
+                <tr>
+                    <td colspan="3"> <p align="top">
+                        <p style="
+                        position: relative;
+                        transform: translate(1%, -11%);">
+                        </p>
+                        <span style=" transform: translate(1%, 60%);display:inline-block;width:114px;"> Shipper's Details</span><span style=" transform: translate(1%, 60%);display:inline-block;width:100px;">:  {{ $data_transport->customers->name}}</span>
+                        <p style="
+                        position: relative;
+                        transform: translate(1%, -11%);"> 
+                        </p>
+                        <span style=" transform: translate(1%, 84%);display:inline-block;width:114px;"> Address</span><span style=" transform: translate(1%, 84%);display:inline-block;width:211px;">: {{ $data_transport->origin_address }}</span>
+                        <p style="
+                        position: relative;
+                        transform: translate(1%, -11%);"><span style=" transform: translate(-3%, 90%);display:inline-block;width:113px;"> PIC:</span><span style=" transform: translate(-42%, 90%);display:inline-block;width:220px;">  {{$data_transport->pic_name_destination}} <span style=" transform: translate(20%, 20%);display:inline-block;width:220px;">Telp : {{$data_transport->pic_phone_destination}}</span> 
+                        </p>
+                        {{-- <span style=" transform: translate(1%, 70%);display:inline-block;width:113px;"> PIC:</span><span style=" transform: translate(-42%, 70%);display:inline-block;width:220px;">  {{$data_transport->pic_name_origin}}</span>
+                        <span style=" transform: translate(-210%, 70%);display:inline-block;width:113px;"> Telp</span><span style=" transform: translate(-270%, 70%);display:inline-block;width:120px;">:  {{$data_transport->pic_phone_origin}}</span> --}}
+                        
+                    </td>
+                    <td colspan="3"> <p align="top">
+                            <p style="
+                            position: relative;
+                            transform: translate(1%, -20%);">
+                            </p>
+                            <span style=" transform: translate(1%, 60%);display:inline-block;width:114px;"> Destination Details</span><span style=" transform: translate(1%, 60%);display:inline-block;width:219px;">: {{$data_transport->destination_details}} </span>
+                            <p style="
+                            position: relative;
+                            transform: translate(1%, -20%);">    
+                            </p>
+                            <span style=" transform: translate(1%, 84%);display:inline-block;width:114px;"> Address</span><span style=" transform: translate(1%, 84%);display:inline-block;width:219px;">: {{ $data_transport->destination_address }} </span>
+                            <p style="
+                            position: relative;
+                            transform: translate(1%, -20%);"><span style=" transform: translate(-2%, 90%);display:inline-block;width:113px;"> PIC:</span><span style=" transform: translate(-43%, 90%);display:inline-block;width:220px;">  {{$data_transport->pic_name_destination}} <span style=" transform: translate(20%, 20%);display:inline-block;width:220px;">Telp : {{$data_transport->pic_phone_destination}}</span>
+                            </p>
+                        </td>
+                    </tr>
+                <tr>
+                    <td width="1%" colspan="3">PO Codes: {{$data_transport->purchase_order_customer}}</td>
+                    {{--  <td width="1%"colspan="3">Note: {{$data_transport->notes}}</td>  --}}
+                    <td width="1%"colspan="3">Note: </td>
+
+                </tr>
+                <tr>
+                        <td style="height:67px"colspan="2"> <p align="top">
+                                <p style="
+                                position: relative;
+                                transform: translate(1%, -16%);">Signature (Shipper) 
+                                </p>
+                                <p style="
+                                position: relative;
+                                transform: translate(1%, -20%);">Name: 
+                                </p>
+                                <p style="
+                                position: relative;
+                                transform: translate(1%, 100%);">Date: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Time:
+                                </p>
+                            </td>
+                            <td style="height:67px"colspan="2"> <p align="top">
+                                    <p style="
+                                    position: relative;
+                                    transform: translate(1%, -16%);">Signature (Courier) 
+                                    </p>
+                                    <p style="
+                                    position: relative;
+                                    transform: translate(1%, -20%);">Name: 
+                                    </p>
+                                    <p style="
+                                    position: relative;
+                                    transform: translate(1%, 100%);">Date: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Time:
+                                    </p>
+                                </td>
+                                <td style="height:67px"colspan="2"> <p align="top">
+                                        <p style="
+                                        position: relative;
+                                        transform: translate(1%, -16%);">Signature (Receiver) 
+                                        </p>
+                                        <p style="
+                                        position: relative;
+                                        transform: translate(1%, -20%);">Name: 
+                                        </p>
+                                        <p style="
+                                        position: relative;
+                                        transform: translate(1%, 100%);">Date: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Time:
+                                        </p>
+                                    </td>
+                </tr>
+                <tr>
+                    <td style="height:10px;background-color: #b0b1b2;"colspan="6"><font style="font-size:11px">I/We hereby acknowledge all the terms & condition stated on the reverse side as the terms & conditon of this contract and agree to be bound by</font></td>
+                </tr>
+      </table>
+    <hr>
+    <div style="margin-right:3%;font-size:19px;text-align:right;position:inherit">RECEIVER</div>
+    <table>
+            <tr>
+                <th colspan="3">
+                    @if($data_transport->company_branch->company->id=="2")
+                    <img style="
+                    overflow: auto;
+                    margin-left:2px;
+                    margin-right: 2px;" height="38" width="74" HSPACE="10" VSPACE="9" align="left" src="{{asset('./img/3PE.png')}}" />
+                <font style="font-family: Arial;position:absolute;">
+                    Represented By
+                        <br/>
+                    <font style="font-size: 13px;">
+                        {{ $data_transport->company_branch->company->name }}
+                    </font>
+                        <br/>
+                        {{ $data_transport->company_branch->address }}
+                        <br/>
+                        Tel: {{ $data_transport->company_branch->telp }}
+                        <br/>
+                        Email: info@3permata.co.id
+                    </font>
+                    @else
+                    <img style="
+                    overflow: auto;
+                    margin-left:2px;
+                    margin-right: 2px;" HSPACE="10" VSPACE="9" align="left" src="{{asset('./img/tiga-permata-logistik-surabaya-logo.png')}}" />
+                     <font style="font-family: Arial;position:absolute;">
+                            Represented By
+                                <br/>
+                            <font style="font-size: 13px;">
+                                {{ $data_transport->company_branch->company->name }}
+                            </font>
+                                <br/>
+                                {{ $data_transport->company_branch->address }}
+                                <br/>
+                                Tel: {{ $data_transport->company_branch->telp }}
+                                <br/>
+                                Email: info@3permata.co.id
+                            </font>
+                    @endif
+                   </th>
+                    <th colspan="2">
+                        <p style="transform: translate(-41%, -50%);">
+                        <span style="display:inline-block;width:150px"></span>Shipment Code:
+                        <span style="display:inline-block;width:90px"></span><font style="font-family: Fira Code;font-size: 13px"> {{$data_transport->order_id}} </font>
+                        </p> 
+                        <font style="transform: translate(-41%, 1%);">
+                            Created At
+                            <font style="font-family: Fira Code;font-size: 11px"> {{$data_transport->created_at->format('d M Y H:i')}} </font>
+                        </font> 
+                        <img style="
+                        margin-top: -61px;
+                        margin-right: -7px;" height="56" width="58" HSPACE="10" VSPACE="2" align="right" src="data:{{$qrCode->getContentType().";base64,".$qrCode->generate()}}" />
+                    </th>
+                    <th style="height:67px" colspan="1">
+                    <p style="transform: translate(1%, -90%);">
+                        Service: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        {{$data_transport->itemtransports->sub_services->name}}
+                    </p>
+                </tr>
+                    <tr>
+                        <td >Purchase order</td>
+                        <td >Origin</td>
+                        <td >Destination</td>
+                        <td >collie</td>
+                        <td >Actual (Kg)</td>
+                        <td >Chargeable (Kg)</td>
+                    </tr>
+                <tr>
+                    <td></td>
+                    <td>{{$data_transport->origin}}</td>
+                    <td>{{$data_transport->destination}}</td>
+                    <td>{{$data_transport->collie}}</td>
+                    <td>{{$data_transport->actual_weight}}</td>
+                    <td>{{$data_transport->chargeable_weight}}</td>
+                </tr>
+                <tr>
+                    <td colspan="3"> <p align="top">
+                        <p style="
+                        position: relative;
+                        transform: translate(1%, -11%);">
+                        </p>
+                        <span style=" transform: translate(1%, 60%);display:inline-block;width:114px;"> Shipper's Details</span><span style=" transform: translate(1%, 60%);display:inline-block;width:100px;">:  {{ $data_transport->customers->name}}</span>
+                        <p style="
+                        position: relative;
+                        transform: translate(1%, -11%);"> 
+                        </p>
+                        <span style=" transform: translate(1%, 84%);display:inline-block;width:114px;"> Address</span><span style=" transform: translate(1%, 84%);display:inline-block;width:211px;">: {{ $data_transport->origin_address }}</span>
+                        <p style="
+                        position: relative;
+                        transform: translate(1%, -11%);"><span style=" transform: translate(-3%, 90%);display:inline-block;width:113px;"> PIC:</span><span style=" transform: translate(-42%, 90%);display:inline-block;width:220px;">  {{$data_transport->pic_name_destination}} <span style=" transform: translate(20%, 20%);display:inline-block;width:220px;">Telp : {{$data_transport->pic_phone_destination}}</span> 
+                        </p>
+                        {{-- <span style=" transform: translate(1%, 70%);display:inline-block;width:113px;"> PIC:</span><span style=" transform: translate(-42%, 70%);display:inline-block;width:220px;">  {{$data_transport->pic_name_origin}}</span>
+                        <span style=" transform: translate(-210%, 70%);display:inline-block;width:113px;"> Telp</span><span style=" transform: translate(-270%, 70%);display:inline-block;width:120px;">:  {{$data_transport->pic_phone_origin}}</span> --}}
+                        
+                    </td>
+                    <td colspan="3"> <p align="top">
+                            <p style="
+                            position: relative;
+                            transform: translate(1%, -20%);">
+                            </p>
+                            <span style=" transform: translate(1%, 60%);display:inline-block;width:114px;"> Destination Details</span><span style=" transform: translate(1%, 60%);display:inline-block;width:219px;">: {{$data_transport->destination_details}} </span>
+                            <p style="
+                            position: relative;
+                            transform: translate(1%, -20%);">    
+                            </p>
+                            <span style=" transform: translate(1%, 84%);display:inline-block;width:114px;"> Address</span><span style=" transform: translate(1%, 84%);display:inline-block;width:219px;">: {{ $data_transport->destination_address }} </span>
+                            <p style="
+                            position: relative;
+                            transform: translate(1%, -20%);"><span style=" transform: translate(-2%, 90%);display:inline-block;width:113px;"> PIC:</span><span style=" transform: translate(-43%, 90%);display:inline-block;width:220px;">  {{$data_transport->pic_name_destination}} <span style=" transform: translate(20%, 20%);display:inline-block;width:220px;">Telp : {{$data_transport->pic_phone_destination}}</span>
+                            </p>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="1%" colspan="3">PO Codes: {{$data_transport->purchase_order_customer}}</td>
+                    {{--  <td width="1%"colspan="3">Note: {{$data_transport->notes}}</td>  --}}
+                    <td width="1%"colspan="3">Note: </td>
+
+                </tr>
+                <tr>
+                    <td style="height:67px"colspan="2"> <p align="top">
+                            <p style="
+                            position: relative;
+                            transform: translate(1%, -16%);">Signature (Shipper) 
+                            </p>
+                            <p style="
+                            position: relative;
+                            transform: translate(1%, -20%);">Name: 
+                            </p>
+                            <p style="
+                            position: relative;
+                            transform: translate(1%, 100%);">Date: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Time:
+                            </p>
+                        </td>
+                        <td style="height:67px"colspan="2"> <p align="top">
+                                <p style="
+                                position: relative;
+                                transform: translate(1%, -16%);">Signature (Courier) 
+                                </p>
+                                <p style="
+                                position: relative;
+                                transform: translate(1%, -20%);">Name: 
+                                </p>
+                                <p style="
+                                position: relative;
+                                transform: translate(1%, 100%);">Date: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Time:
+                                </p>
+                            </td>
+                    <td style="height:67px"colspan="2"> <p align="top">
+                        <p style="
+                        position: relative;
+                        transform: translate(1%, -16%);">Signature (Receiver) 
+                        </p>
+                        <p style="
+                        position: relative;
+                        transform: translate(1%, -20%);">Name: 
+                        </p>
+                        <p style="
+                        position: relative;
+                        transform: translate(1%, 100%);">Date: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Time:
+                        </p>
+                    </td>
+                </tr>
+            <tr>
+                <td style="height:10px;background-color: #b0b1b2;"colspan="6"><font style="font-size:11px">I/We hereby acknowledge all the terms & condition stated on the reverse side as the terms & conditon of this contract and agree to be bound by</font></td>
+            </tr>
+      </table>

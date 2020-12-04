@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta name="csrf-token" content="{{ csrf_token() }}" />
+
+        <title>❤️</title>
+
+        <link href="{{ mix('css/app.css') }}" rel="stylesheet" />
+    </head>
+    <body >
+
+        <div id="app">
+            <div class="rounded rounded-t-lg overflow-hidden shadow max-w-xs my-3">
+                <img src="https://i.imgur.com/dYcYQ7E.png" class="w-full" />
+              <div class="flex justify-center -mt-8">
+                  <img src="https://i.imgur.com/8Km9tLL.jpg" class="rounded-full border-solid border-white border-2 -mt-3">		
+              </div>
+              <div class="text-center px-3 pb-6 pt-2">
+                  <h3 class="text-black text-sm bold font-sans">Olivia Dunham</h3>
+                  <p class="mt-2 font-sans font-light text-grey-dark">Hello, i'm from another the other side!</p>
+              </div>
+                <div class="flex justify-center pb-3 text-grey-dark">
+                <div class="text-center mr-3 border-r pr-3">
+                  <h2>34</h2>
+                  <span>Photos</span>
+                </div>
+                <div class="text-center">
+                  <h2>42</h2>
+                  <span>Friends</span>
+                </div>
+                </div>
+          </div>
+        </div>
+    <script src="{{ mix('js/app.js') }}"></script>
+</html>

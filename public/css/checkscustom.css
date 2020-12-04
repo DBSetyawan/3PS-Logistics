@@ -1,0 +1,24 @@
+.dot {
+  border: 1px;  
+  border-style: solid;
+  width: 10px;
+  height: 10px;
+  border-radius: 10%;
+  background-color:black;
+  border-color: black;
+  color: black;
+  padding: 5px;
+  background-size: 30% 20%;
+  background-image: 
+  linear-gradient(to top, #76daff 50%, transparent 50%);
+  transition: background-position 3000ms, color 3000ms ease, border-color 3000ms ease;
+}
+
+.dot:hover {
+  color: white;
+  border-color: black;
+  background-image: 
+    linear-gradient(to top, #76daff 51%, transparent 50%);
+  background-position: 0 10%;
+  transition: background-position 3000ms, color 3000ms ease, border-color 3000ms ease;
+}
