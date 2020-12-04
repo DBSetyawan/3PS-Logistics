@@ -1,0 +1,7 @@
+/node_modules
+.DS_Store
+.sql
+/vendor
+.env
+.env 2
+.xlsx
